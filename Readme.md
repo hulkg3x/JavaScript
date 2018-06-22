@@ -5,7 +5,7 @@ Curso JavaScript: Programando na linguagem da web: https://cursos.alura.com.br/c
 <p align="center">
 <img src="https://d2tycqyw09ngo1.cloudfront.net/be-content/uploads/2018/04/23170601/frameworks-js2-1.png" width="500" alt="Imagen do JavaScript">
 
-#1.0: Aula 1 Introdução:
+#1.0 Aula 1: Introdução
 
 >JavaScript é uma forma interessante de iniciar seus site para deixar bem mais atrativo. Criar efeitos para seu site e facilitar a vida do usuario.
 
@@ -137,6 +137,7 @@ Curso JavaScript: Programando na linguagem da web: https://cursos.alura.com.br/c
 ```
 - Com isso Conseguimos alterar o nosso conteudo HTML.
 
+# 2.0 Aula 2: Variaveis e Operadores
 
 
 
