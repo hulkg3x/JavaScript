@@ -10,13 +10,26 @@ var botaoAdicionar = document.querySelector("#adicionar-paciente");
            // cria as TR e TD
            var pacienteTr = montaTr(paciente);
 
+           var erros = validaPaciente(paciente);
 
-    
+           if(erros.length > 0) {
+                
+            exibeMensagemDeError(erros);
+
+               return;
+           }
+
+
+            // adiciona o paciente na tabela.
             var tabela = document.querySelector("#tabela-pacientes");
 
             tabela.appendChild(pacienteTr);
 
             form.reset();
+
+            var mensagemErro = document.querySelector("#mensagem-error");
+
+            mensagemErro.innerHTML = "";
             
         });
 
@@ -74,7 +87,46 @@ var botaoAdicionar = document.querySelector("#adicionar-paciente");
         }
 
         function validaPaciente(paciente) {
-            if(paciente.altura < 2.0 && paciente.altura >= 0) {
-                return true;
+
+           var erros = [];
+
+           if(paciente.nome.length == 0) {
+               erros.push("*Insira o nome do Paciente");
+           }
+
+            if(!validaPeso(paciente.peso)) {
+                erros.push("*O Peso está errado");
             }
+
+            if(!validaAltura(paciente.altura)) {
+                erros.push("*A Altura está errada");
+            }
+
+            if(paciente.gordura.length == 0) {
+                erros.push("*A gordura não pode ser em brando");
+            }
+
+            if(paciente.peso.length == 0) {
+                erros.push("*Digite o Peso");
+            }
+
+            if(paciente.altura.length == 0) {
+                erros.push("*Digite a Altura");
+            }
+
+            return erros;
         }
+
+        function exibeMensagemDeError(erros) {
+            var ul = document.querySelector("#mensagem-error");
+
+            ul.innerHTML = "";
+
+            erros.forEach(function(erro) {
+                var li = document.createElement("li");
+                li.textContent = erro;
+                ul.appendChild(li);
+            });
+        }
+
+    
