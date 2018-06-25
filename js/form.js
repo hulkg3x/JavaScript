@@ -116,7 +116,6 @@ var botaoAdicionar = document.querySelector("#adicionar-paciente");
 
             return erros;
         }
-
         function exibeMensagemDeError(erros) {
             var ul = document.querySelector("#mensagem-error");
 
