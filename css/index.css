@@ -141,3 +141,8 @@ button[disabled=disabled], button:disabled {
 #mensagem-error {
 	color: red;
 }
+
+.fadeout {
+	opacity: 0;
+	transition: 0.5s;
+}
