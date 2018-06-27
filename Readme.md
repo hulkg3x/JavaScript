@@ -139,7 +139,58 @@ Curso JavaScript: Programando na linguagem da web: https://cursos.alura.com.br/c
 
 # 2.0 Aula 2: Variaveis e Operadores
 
+```js
+    var cadeMeuValor = "Estou Aqui";
+```
+- O primeiro operador que você deve ter percebido em nossos exemplos, foi o sinal de igual ```(=)```, um operador de atribuição:
 
+> Este operador funciona conforme estamos acostumados a ver em qualquer lugar, o item da esquerda recebe o valor da direita por atribuição, ou resumindo: isso é igual a aquilo e ponto (e vírgula no caso).
+
+- Pode por qualquer coisa em sua variavel como exemplo abaixo :
+
+```js
+    var minhaString = "Uma string";
+    var outraVariável = minhaString;
+    var ambosOsValores = outraVariável + ' uma string';
+    var umaFunção = func();
+    var umArray = new Array();
+```
+
+- você pode fazer qualquer tipo de conta que quiser com os operadores aritméticos ```+ (sinal de mais)```, ```– (sinal de menos)```, ```/ (sinal de divisão)```, ```* (sinal de multiplicação)``` e ```% (o resto da divisão)```. Exemplo:
+- 
+```js
+
+var resultado = 1 + 1; // 2
+var a = 2;
+var b = 4;
+var c = a * b; // 8
+
+```
+
+> Devemos tomar cuidado ao usar os operadores aritméticos. Como por Exemplo:
+
+```js
+var peso = 100;
+var altura = 2;
+
+var imc = peso / altura * altura;
+
+```
+- o Resultado daria 100 porque o calculo iniciaria assim ```100 / 2 = 50 * 2 = 100```, mais todos sabemos que inicia antes na multiplicação, e o javascript também sabe, so que precisamos avisar que a gente quer iniciar dessa forma ```2 * 2 = 4 / 100 = 25```.
+
+> Em JavaScript, existem os operadores aritméticos básicos de todas as linguagens de programação: +, -, *, / e %. Temos ainda outros caracteres para nos ajudar a representar uma conta matemática, os parênteses ().
+
+- Exemplo:
+
+```js
+var peso = 100;
+var altura = 2;
+
+var imc = peso / (altura * altura);
+
+```
+
+# 3.0 Aula 3: Array, Loop e Estilos
 
 
 
