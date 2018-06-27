@@ -192,7 +192,91 @@ var imc = peso / (altura * altura);
 
 # 3.0 Aula 3: Array, Loop e Estilos
 
+> para iniciar um Array , que é uma lista de itens que se inicia sempre pelo 0 , 1 , 2 e etc.
 
+```js
+
+var meyArray = ["carro", "bicicleta", "nave"];
+
+```
+
+> Podemos usando um loop ```for``` ele receberá três argumentos: a declaração da variável inicial, até onde queremos que essa variável cresça, e o que queremos fazer no fim de cada iteração. Por exemplo:
+
+```js
+var pacientes = document.querySelectorAll(".paciente");
+
+for (var i = 0; i < 5; i++) {
+
+}
+```
+
+- e quando queremos pecorrer oa lista de pacientes na qual o ```querySelectorAll``` busca usando o for.
+
+
+```js
+var pacientes = document.querySelectorAll(".paciente");
+
+for (var i = 0; i < pacientes.length; i++) {
+
+}
+```
+
+- A propriedade ```length``` informa o seu tamanho do array paciente. Usando o for ela vai pecorrer o array todo, ate seu limite.
+ > Cada Array tem seu indice que inicia pelo 0, e vai 1 , 2 , 3 e etc...
+
+ ```js
+var pacientes = document.querySelectorAll(".paciente");
+
+for (var i = 0; i < pacientes.length; i++) {
+    console.log(pacientes[i]);
+}
+```
+
+
+>OBS: Quando fazemos calculo e que aparece muitas casas decimais, podemos usar o ```toFixed``` para corrigir esses problemas.
+
+- por exemplo 3.555555555555
+
+> usando o ```toFixed``` podemos corrigir.
+
+```js
+
+if(...)
+    ...
+    minhaVariavel.textContent = minhaVariavel.toFixed(2);
+}
+
+```
+
+- assim o numero fica 3.55, voce pode definir quantas casas aparecer ```toFixed(3)``` e etc...
+
+> Podemos aplicar estilos usando nosso ```javaScript```.
+
+
+- podemos usar assim dessa forma:
+
+```js
+    MinhaVariavel.style.color = "red";
+``` 
+- a Variavel selecionada é a variavel onde o querySelector seleciona o elemento, e o textContent faz a alteração.
+
+```js
+        paciente.style.backgroundColor = "red";
+```
+
+- o BackgroundColor tem que permanecer juntos, ```Camel Case``` padrão.
+
+>assim como temos o **style** para acesso aos estilos e o textContent para acessarmos o conteúdo de texto de um elemento, teremos a classList para acessarmos as classes. E usando o método add.
+
+```js
+
+    minhaVariavel.classList.add("minha-classe-no-css");
+
+```
+
+- Isso fará adicionar a classe ```minha-classe-no-css``` no conteudo desejado, ou seja na variavel que vai alterar o conteudo do texto.
+- 
+# 4.0 Aula 4: Eventos, Formulários e Criando Elementos
 
 
 
