@@ -278,7 +278,160 @@ if(...)
 - 
 # 4.0 Aula 4: Eventos, Formulários e Criando Elementos
 
+> Quando queremos criar um evento de click para nosso formulario, o javaScript precisa escutar esse evento.
 
+- com isso temos o ```addEventListener()```,  Ela será responsável por adicionar o escutador de evento, como já diz o nome traduzido para o português. E como queremos o evento quando clicar no botão, entao passamos o evento de ```click```.
+
+```js
+botao.addEventListener("click", mostraMensagem);
+
+function mostraMensagem(){
+    console.log("Olá eu fui clicado!");
+}
+```
+
+- Isso é onde a variavel **"botão"** chama a função **"mostraMensagem"**.
+- O melhor podemos criar funções anonimas também , como por exemplo :
+
+```js
+botao.addEventListener("click", function() {
+    consol.elog("Olá eu fui clicado!");
+});
+```
+- Funçoes anonimas é as quais nao precisa por um nome, somente passar os eventos a ser executados.
+
+> Em formularios a casos em que queremos que ao clicar no botão, a pagina não da reload, e nem limpar os campos por exemplo. Para evitar esse tipo de situação o javaScript pode nós ajudar.
+
+- Para isso usamos o ```event.preventDefault()```.
+
+```js
+botao.addEventListener("click", function(event) {
+    event.preventDefault();
+    consol.elog("Olá eu fui clicado!");
+});
+```
+
+- Como se trata de um Evento, devemos passar na função anonima o (event), e chamar o ```preventDefault()```. ```event.preventDefault();```.
+
+
+> Podemos adicionar elementos ao nosso HTML através do javaScript, com os formulario, para isso precisamos além dos ```input```, o campo ```nome``` que pega as informações digitadas pelo usuario, e o campo ```value``` no javaScript que detecta as informaçoes digitadas.
+
+- Ao selecionar o nosso ```form``` que seria a propria ```tag``` html ou ate mesmo passar um ```ID``` para ela, devemos criar as variaveis para detectar o campo e os valores digitados.
+
+- Exemplo:
+
+```js
+botao.addEventListener("click", function(event) {
+    event.preventDefault();
+   
+   var form = document.querySelector("#form-adicionar");
+
+   var nome = form.nome.value;
+   var idade = form.idade.value;
+   var aniversario = form.aniversario.value;
+});
+```
+
+- Para pegar o valor digitado no input acessamos a sua propriedade ```value```.
+- na parte do ```nome```, ```idade``` e ```aniversario``` é os nomes digitados no input do campo ```name="nome"```, ```name="idade"``` e etc...
+
+> Agora que pegamos as informaçoes dos campos digitados, devemos criar uma tabela , dentro da ```<table>```, tem ```<tr>``` e dentro da ```<tr>``` tem o ```<td>```, entao para criar nessa ordem seria.
+> 
+
+```js
+botao.addEventListener("click", function(event) {
+    event.preventDefault();
+   
+   var form = document.querySelector("#form-adicionar");
+
+   var nome = form.nome.value;
+   var idade = form.idade.value;
+   var aniversario = form.aniversario.value;
+
+
+    var criaTr = document.createElement("tr");
+});
+```
+
+- o Tr cria uma vez da variavel ```criaTr```, agora devemos criar as ```<td>``` que vai receber os campos digitados.
+
+
+```js
+botao.addEventListener("click", function(event) {
+    event.preventDefault();
+   
+   var form = document.querySelector("#form-adicionar");
+
+   var nome = form.nome.value;
+   var idade = form.idade.value;
+   var aniversario = form.aniversario.value;
+
+
+    var criaTr = document.createElement("tr");
+
+    var nomeTd = document.createElement("td");
+    var idadeTd = document.createElement("td");
+    var aniversarioTd = document.createElement("td");
+});
+```
+> Para colocar os valores que extraimos de cada campo digitado no input devemos por o ```textContent```, Ele serve para alterar os nossos textos do nosso html.
+
+
+```js
+botao.addEventListener("click", function(event) {
+    event.preventDefault();
+   
+   var form = document.querySelector("#form-adicionar");
+
+   var nome = form.nome.value;
+   var idade = form.idade.value;
+   var aniversario = form.aniversario.value;
+
+
+    var criaTr = document.createElement("tr");
+
+    var nomeTd = document.createElement("td");
+    var idadeTd = document.createElement("td");
+    var aniversarioTd = document.createElement("td");
+
+    nomeTd.textContent = nome;
+    idadeTd.textContent = idade;
+    aniversario.textContent = aniversario;
+});
+```
+- Nesse caso pegamos a ```<td>```que vai ser criada, colocamos o ```textContent``` que vai receber a informação digitada pelo usuario do campo que ele recebe, ```nome```, ```idade``` e etc.
+
+> Agora para por corretamente na tabela devemos pensar o seguinte, primeiro vem a ```<tr>```, depois as ```<td>```, entao a ```<td>``` é filho da ```<tr>```, para fazer com que o javaScript coloque dessa forma no nosso ```HTML```, passamos para ela o seguinte ```appendChild();```.
+
+```js
+botao.addEventListener("click", function(event) {
+    event.preventDefault();
+   
+   var form = document.querySelector("#form-adicionar");
+
+   var nome = form.nome.value;
+   var idade = form.idade.value;
+   var aniversario = form.aniversario.value;
+
+
+    var criaTr = document.createElement("tr");
+
+    var nomeTd = document.createElement("td");
+    var idadeTd = document.createElement("td");
+    var aniversarioTd = document.createElement("td");
+
+    nomeTd.textContent = nome;
+    idadeTd.textContent = idade;
+    aniversario.textContent = aniversario;
+
+    criaTr.appendChild(nomeTd);
+    criaTr.appendChild(idadeTd);
+    criaTr.appendChild(aniversarioTd);
+});
+```
+ - com isso Colocamos as variaveis que cria as ```<td>``` dentro da ```<tr>``` que tem como nome a variavel ```criaTr```. usando o ```appendChild``` que faz com que um elemento se torne filho de outro.
+
+ # 5.0 Aula 5: Boas Praticas com JavaScript
 
 
 
