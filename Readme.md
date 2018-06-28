@@ -25,7 +25,7 @@ Curso JavaScript: Programando na linguagem da web: https://cursos.alura.com.br/c
     </body>
 </html>
 ```
-- No fim da Body porque dependendo da escrita do java o HTML é executado em ordens.
+- No fim da Body porque dependendo da escrita do JavaScript o HTML é executado em ordens.
 
 ```html
 <html>
@@ -56,7 +56,7 @@ Curso JavaScript: Programando na linguagem da web: https://cursos.alura.com.br/c
 ```
 - Dessa forma chamamos um arquivo externo. Seguindo o mesmo conceito de ordem a ser executado.
 
-> O basico de um JavaScritp, primeiro js:
+> O básico de um JavaScript, primeiro js:
 
 ```html
     <script>
