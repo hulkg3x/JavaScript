@@ -471,6 +471,45 @@ function obterValoresDigitadosPeloUsuario(form) {
 
 - Um Exemplo simples, mais que possa manter esse conceito.
 
+# 6.0 Aula 6: Validações
+
+> Podemos validar no nosso JavaScript, e como todos sabem a forma mais facil, e bastante conhecida é o ```if``` e ```else```.
+
+- Exemplo :
+
+```js
+
+if (seEssaVariavelFor == aEssaOutraVariavel) {
+  //  aqui se torna verdadeiro
+} else {
+   // se nao aqui se torna falso
+}
+
+```
+
+```js
+if (algumaVariavel > 50)
+{
+  // faça alguma coisa
+}
+```
+
+ - Existe varios operadores de comparação negação, diferente ou maior ou menor e etc.
+
+- Operadores:
+
+```
+ x == y (x é igual a y)
+ x != y (x é não igual a y)
+ x <  y (x é menor que y)  
+ x >  y (x é maior que y) 
+ x <= y (x é menor ou igual a y) 
+ x >= y (x é maior ou igual a y)
+
+```
+
+# 7.0 Aula 7 : Animação com CSS e javaScript
+
 
 
 
