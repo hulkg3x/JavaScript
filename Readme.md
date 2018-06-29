@@ -433,7 +433,43 @@ botao.addEventListener("click", function(event) {
 
  # 5.0 Aula 5: Boas Praticas com JavaScript
 
+> Assim como no HTML, precisamos no javaScript manter a organização e um bom entendimento do codigo futuramente, manter as boas praticas.
 
+- Sem ter que escrever linhas e linhas uma abaixo da outra e fazendo aquela extensa lista de codigos sem poder entender o que cada um ta fazendo.
+
+- Podemos ir separando por ```escopos```, ```funçoes```. Criar funçoes, para melhor entender o que cada parte está fazendo no nosso codigo.
+
+> Ajuda ate mesmo outras pessoas que futuramente irá usar, rever e alterar seu codigo escrito.
+
+- Exemplo: Em Vez disso:
+
+```js
+botao.addEventListener("click", function(event) {
+    event.preventDefault();
+   
+   var form = document.querySelector("#form-adicionar");
+
+   var nome = form.nome.value;
+   var idade = form.idade.value;
+   var aniversario = form.aniversario.value;
+});
+```
+- Exemplo: Correto, posivelmente
+
+```js
+botao.addEventListener("click", function(event) {
+    event.preventDefault();
+   
+   var form = document.querySelector("#form-adicionar");
+
+function obterValoresDigitadosPeloUsuario(form) {
+    var nome = form.nome.value;
+    var idade = form.idade.value;
+    var aniversario = form.aniversario.value;
+});
+```
+
+- Um Exemplo simples, mais que possa manter esse conceito.
 
 
 
