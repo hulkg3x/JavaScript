@@ -524,6 +524,73 @@ minhaVariavel.forEach(function(minhaVariavel) {
 - o ```dblclick```, informa que precisamos da duplo click para que o evento de remoção aconteça. Dessa forma o ```querySelector``` está selecionando o conteudo HTML, onde com a função forEach executa o restante do evento que seria remover o conteudo. ```this.remove()```.
 
 
+- Temos o ```target```também que informa quem foi o elemento clicado quem foi o alvo.
+- 
+> Exemplo
+
+```JS
+var minhaVariavel = document.querySelector("classeSelecionada");
+
+minhaVariavel.addEventListener("dblclick", function(event) {
+    event.target.remove();
+});
+``` 
+
+> O ```parentNode``` seleciona o pai do elemento, ou seja podemos remover tanto o pai quanto o filho usando essa propriedade.
+
+- Exemplo :
+
+```JS
+var minhaVariavel = document.querySelector("classeSelecionada");
+
+minhaVariavel.addEventListener("dblclick", function(event) {
+    event.target.parentNode.remove();
+});
+``` 
+
+> Ja Animação fica por conta do estilo ```CSS``` onde voce cria seu estilo que deseja usar como animação ao clicar para remover .
+
+- exemplo :
+```css
+    .fadeOut {
+        opacity: 0;
+        transition: 0.5s;
+    }
+```
+> Dessa forma chamamos essa animação para o nosso JavaScript
+- como Por Exemplo:
+
+```js
+var minhaVariavel = document.querySelector("classeSelecionada");
+
+minhaVariavel.addEventListener("dblclick", function(event) {
+    event.target.parentNode.classList.add("fadeOut");
+    event.target.parentNode.remove();
+});
+```
+
+> Usando ```classList.add();```.Podemos usar o ```setTimeout``` para da um delay de tempo antes de executar a animação ```CSS```.
+
+- exemplo :
+
+```js
+
+var minhaVariavel = document.querySelector("classeSelecionada");
+
+minhaVariavel.addEventListener("dblclick", function(event) {
+    event.target.parentNode.classList.add("fadeOut");
+
+    setTimeout(function() {
+        event.target.parentNode.remove();
+    }, 500);
+
+});
+
+```
+
+- com o tempo de 500 milissegundos, equivalente a meio segundo.
+
+
 
 
 
