@@ -510,6 +510,18 @@ if (algumaVariavel > 50)
 
 # 7.0 Aula 7 : Animação com CSS e javaScript
 
+> Podemos animar nossa pagina usando o JavaScript e CSS , com eventos de clicks, como por exemplo o ```remove``` que é ultilizado para remover conteudos do nosso HTML, seguido do ```this``` que acessa o dono do evento no qual está atrelado.
+
+```js
+var minhaVariavel = document.querySelectorAll(".minhaClasse");
+
+minhaVariavel.forEach(function(minhaVariavel) {
+    minhaVariavel.addEventListener("dblclick", function() {
+        this.remove();
+    });
+});
+```
+- o ```dblclick```, informa que precisamos da duplo click para que o evento de remoção aconteça. Dessa forma o ```querySelector``` está selecionando o conteudo HTML, onde com a função forEach executa o restante do evento que seria remover o conteudo. ```this.remove()```.
 
 
 
