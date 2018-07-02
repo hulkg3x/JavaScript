@@ -582,6 +582,8 @@ minhaVariavel.addEventListener("dblclick", function(event) {
 
     setTimeout(function() {
         event.target.parentNode.remove();
+        ~
+        
     }, 500);
 
 });
@@ -590,7 +592,54 @@ minhaVariavel.addEventListener("dblclick", function(event) {
 
 - com o tempo de 500 milissegundos, equivalente a meio segundo.
 
+# 8.0 Aula 8: Filtrando com JavaScript
 
+> Podemos fazer um simples sistema de busca, ou seja filtrar algo ao digitar o que desejamos buscar.
+
+- Ao criar nosso campo input, precisamos chamar no JavaScript como ja sabemos usando o ```querySelector```.
+
+- em seguida assim como usamos o ```click``` , o ```dblclick``` vamos usar o ```input```, como exemplo abaixo:
+
+```js
+var campoFiltro = document.querySelector("#filtrar");
+
+campoFiltro.addEventListener("input", function(){
+    console.log(this.value);
+});
+```
+
+- com isso ja Detecta o que foi digitado no campo. Em seguida basta criar a logica do filtro.
+> Onde Voce chama pelo querySelector o elemento do HTML que vai buscar ao digitar, onde voce ultiliza o ```for``` para percorrer a lista de nomes da pesquisa.
+
+- Ultilizando o CSS, para fazer sumir ou aparecer a nossa lista, tabela e etc.
+
+```css
+.invisivel{
+    display: none;
+}
+```
+
+```js
+var campoFiltro = document.querySelector("#filtrar");
+
+campoFiltro.addEventListener("input", function(){
+    console.log(this.value);
+    var minhaVariavel = document.querySelectorAll(".listaDeNomes");
+    for (var i = 0; i < pacientes.length; i++) {
+        var paciente = pacientes[i];
+        var tdNome = paciente.querySelector(".info-nome");
+        var nome = tdNome.textContent;
+
+        if (nome != this.value) {
+            paciente.classList.add("invisivel");
+        } else {
+            paciente.classList.remove("invisivel");
+        }
+    }
+});
+```
+
+> Um Exemplo simples de uma logica, claro q não está  100% funcional. Mais é so um Exemplo.
 
 
 
