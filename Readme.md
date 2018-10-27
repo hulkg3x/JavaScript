@@ -642,9 +642,6 @@ campoFiltro.addEventListener("input", function(){
 > Um Exemplo simples de uma logica, claro q não está  100% funcional. Mais é so um Exemplo.
 
 
-testando commit
-
-
 
 
 
