@@ -609,37 +609,184 @@ campoFiltro.addEventListener("input", function(){
 ```
 
 - com isso ja Detecta o que foi digitado no campo. Em seguida basta criar a logica do filtro.
-> Onde Voce chama pelo querySelector o elemento do HTML que vai buscar ao digitar, onde voce ultiliza o ```for``` para percorrer a lista de nomes da pesquisa.
 
-- Ultilizando o CSS, para fazer sumir ou aparecer a nossa lista, tabela e etc.
+> Ao criar o eventListener com a função e o metodo input dentro devemos digitar toda nossa logica de pesquisa da tabela.
+
+- Antes criaremos rapidamente um estilo CSS, para fazer sumir ou aparecer a nossa lista da tabela como exemplo.
 
 ```css
 .invisivel{
     display: none;
 }
 ```
+ > Podemos criar da seguinte forma: 
 
 ```js
 var campoFiltro = document.querySelector("#filtrar");
 
 campoFiltro.addEventListener("input", function(){
     console.log(this.value);
-    var minhaVariavel = document.querySelectorAll(".listaDeNomes");
-    for (var i = 0; i < pacientes.length; i++) {
-        var paciente = pacientes[i];
-        var tdNome = paciente.querySelector(".info-nome");
-        var nome = tdNome.textContent;
 
-        if (nome != this.value) {
-            paciente.classList.add("invisivel");
-        } else {
-            paciente.classList.remove("invisivel");
-        }
+    // Criamos uma Variavel para chamar 
+    // o elemento HTML que  vai ser buscado
+    var buscarAlgo = document.querySelectorAll("ID ou Classe do elemento");
+});
+```
+
+> Em Seguida criaremos um if para a logica:
+
+```js
+var campoFiltro = document.querySelector("#filtrar");
+
+campoFiltro.addEventListener("input", function(){
+    console.log(this.value);
+
+    /* Criamos uma Variavel para chamar 
+    o elemento HTML que  vai ser buscado */
+    var buscarAlgo = document.querySelectorAll("ID ou Classe do elemento");
+
+    /* Verificamos se o nosso campo digitado
+     é maior que 0 ou seja se o campo foi 
+     prenchido com alguma letra, 
+     NESSE CASO SE FOR MAIOR VAI FAZER UMA CONDIÇÃO */
+    if(this.value.length > 0) {
+        /* OU SEJA ESSA CONDIÇÃO É UM FOR 
+        que irá percorrer na tabela ou lista ou algo
+        que deseja buscar (deve ter varias outras formas de fazer essa logica)*/
+        for( var i = 0; i < buscarAlgo.length; i++){
+
+            // variavel para que busca algo
+            var listaOuTabelaSeiLa = buscarAlgo[i];
+
+            //variavel que pega algo especifico dentro
+            // da tabela ou lista que está dentro
+            // do elemento que buscamos na variavel
+            // BuscarAlgo.
+            var elementoEspecificoDaLista =  listaOuTabelaSeiLa.querySelector(".NomeDaCalsse ou #ID");
+
+            //variavel que pega o nome da lista 
+            // quando digitamos no input
+            var nome = elementoEspecificoDaLista.textContent;
+
+            // variavel que tras uma expressao
+            // na hora de buscar no input
+            // podendo digitar qualquer palavra
+            // e ja mostra o resultado sem precisar
+            // digitar o nome por completo
+            var expressao = new RegExp(this.value,"i");
     }
 });
 ```
 
-> Um Exemplo simples de uma logica, claro q não está  100% funcional. Mais é so um Exemplo.
+> Acima no for é a seguinte forma , "o var i é igual a 0; se o i for menor que buscarAlgo.length que é o comprimento do campo digitado no inpute e o i++" executa as condições abaixo: Entao criamos uma variavel com o nome "listaOuTabelaSeiLa" e atribuimos a ela nossa buscarAlgo[i]; "que nela vai retornar um Array da lista pq o buscarAlgo ela pega para gente o elemento que contem tudo que vamos buscar".
+
+> Em seguida se usamos uma tabela que contem uma lista e nessa lista contem algo especifico que queremos buscar tipo um "nome" criamos uma variavel para pegar somente pelo nome do item. Por isso criamos mais uma variavel : "elementoEspecificoDaLista" que recebe o querySelector com a id ou classe que queremos.
+
+>Por fim criamos uma outra variavel para receber o conteudo da variavel "elementoEspecificoDaLista", ja que queremos buscar o nome entao criamos a variavel : nome que recebe elementoEspecificoDaLista.textContent;
+>Que o textContent serve para pegar o conteudo de texto do elemento.
+
+>outra variavel expressao ela serve para buscar no conteudo do elemento html por cada letra sem precisar ter q digitar o nome completo para buscar por completo, tipo aquelas buscas que faz no google voce coloca uma letra L por exemplo e ja aparece tudo que contem a letra L de inicio ou meio e fim. Entao criamos a variavel e atribuimos a ela "new RegExp(this.value,"i");" "RegExp expressao Regular" e dentro dos parentes, quem queremos buscar? o que digitarmos, entao this.value, ja o "i" depois da virgula indica que buscamos no campo input qualquer nome nao importa se esta com a letra MAIUSCULA ou minuscula, ou seja ativamos o case insensitive.
+
+
+```js
+var campoFiltro = document.querySelector("#filtrar");
+
+campoFiltro.addEventListener("input", function(){
+    console.log(this.value);
+
+    /* Criamos uma Variavel para chamar 
+    o elemento HTML que  vai ser buscado */
+    var buscarAlgo = document.querySelectorAll("ID ou Classe do elemento");
+
+    /* Verificamos se o nosso campo digitado
+     é maior que 0 ou seja se o campo foi 
+     prenchido com alguma letra, 
+     NESSE CASO SE FOR MAIOR VAI FAZER UMA CONDIÇÃO */
+    if(this.value.length > 0) {
+        /* OU SEJA ESSA CONDIÇÃO É UM FOR 
+        que irá percorrer na tabela ou lista ou algo
+        que deseja buscar (deve ter varias outras formas de fazer essa logica)*/
+        for( var i = 0; i < buscarAlgo.length; i++){
+
+            // variavel para que busca algo
+            var listaOuTabelaSeiLa = buscarAlgo[i];
+
+            //variavel que pega algo especifico dentro
+            // da tabela ou lista que está dentro
+            // do elemento que buscamos na variavel
+            // BuscarAlgo.
+            var elementoEspecificoDaLista =  listaOuTabelaSeiLa.querySelector(".NomeDaCalsse ou #ID");
+
+            //variavel que pega o nome da lista 
+            // quando digitamos no input
+            var nome = elementoEspecificoDaLista.textContent;
+
+            // variavel que tras uma expressao
+            // na hora de buscar no input
+            // podendo digitar qualquer palavra
+            // e ja mostra o resultado sem precisar
+            // digitar o nome por completo
+            var expressao = new RegExp(this.value,"i");
+
+            // Criamos um IF agora para aplicar
+            // a classe que criamos para sumir
+            // o nome da tabela e aparecer somento
+            // o que estamos procurando
+            if(!expressao.test(nome)){
+               paciente.classList.add("invisivel");
+           } else {
+               paciente.classList.remove("invisivel");
+           } 
+
+           // por fim remover a classe invisivel
+           // caso nosso campo input esteja 
+           // com o campo vazio
+        } else {
+        for( var i = 0; i < buscarAlgo.length; i++){
+            var listaOuTabelaSeiLa = buscarAlgo[i];
+            listaOuTabelaSeiLa.classList.remove("invisivel");
+        } 
+    }  
+});
+```
+> Na logica do if da expressao "ja que estamos usando expressao regular devemos pegar a variavel que atribuimos a expressao new regexp etc, devemos chamar no if, usando também o metodo "test(), com a qual passaremos o que queremos testar", e entao verificamos "if se minha expressao for negativa ao nome digitado que nao corresponder voce aplica a classe invisivel que é para sumir com ela da tabela / Se nao(else) voce mostra o nome correto digitado, ou seja remove a classe invisivel, e me apareça com o nome que eu digitei.
+
+>Na ultima condição do ELSE repetimos o For porque vamos retornar com a lista da nossa tabela ou qualquer outro elemento que esteja buscando, entao queremos o array daquilo que estava na lista entao se la em cima a condição do meu if foi se meu valor this.value.length for maior que 0 busca para mim e tals, se nao ao apagar o nome no campo quero q retorne a lista para mim, ou seja , (else), pego o for, pego minhas variaveis e removo a classe invisivel como no exemplo acima.
+
+> ficaria mais ou menos assim:
+
+```js
+var campoFiltro = document.querySelector("#filtrar");
+
+campoFiltro.addEventListener("input", function(){
+    console.log(this.value);
+
+    var buscarAlgo = document.querySelectorAll("ID ou Classe do elemento");
+
+    if(this.value.length > 0) {
+        for( var i = 0; i < buscarAlgo.length; i++){
+
+            var listaOuTabelaSeiLa = buscarAlgo[i];
+            var elementoEspecificoDaLista =  listaOuTabelaSeiLa.querySelector(".NomeDaCalsse ou #ID");
+
+            var nome = elementoEspecificoDaLista.textContent;
+            var expressao = new RegExp(this.value,"i");
+
+            if(!expressao.test(nome)){
+               paciente.classList.add("invisivel");
+           } else {
+               paciente.classList.remove("invisivel");
+           } 
+        } else {
+        for( var i = 0; i < buscarAlgo.length; i++){
+            var listaOuTabelaSeiLa = buscarAlgo[i];
+            listaOuTabelaSeiLa.classList.remove("invisivel");
+        } 
+    }  
+});
+```
+
+# 9.0 Aula 9: AjaxBuscando elementos com AJAX
 
 
 
