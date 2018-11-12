@@ -788,6 +788,112 @@ campoFiltro.addEventListener("input", function(){
 
 # 9.0 Aula 9: AjaxBuscando elementos com AJAX
 
+> Com Ajax podemos buscar elementos de outras fontes por meios de API, banco de dados e etc.
+> Dessa forma podemos melhorar nossa lista ou implementar a lista com API de terceiros que deseja incluir!
+
+- Quando clicamos em um botao na qual configuramos com um escutador de evento ou seja AddEventListener(), chamamos nossa API que carrega todos os dados.
+
+> por Exemplo ao iniciar um botao simples e configurar no javaScript:
+
+```js
+var botaoBuscar = document.querySelector("#Buscar-API");
+
+botaoBuscar.addEventListener("click", function(){
+console.log("Buscando API...");
+});
+
+```
+> Para que o javaScript entenda que é de uma URL com um formato de Dados API, usamos uma propriedade **new XMLHttpRequest()**, O **XMLHttpRequest** é um objeto do JS responsável por fazer requisições HTTP. O trecho XML do nome indica que ele era utilizado anteriormente para realizar o transporte de dados do tipo XML, no entanto, atualmente ele consegue trafegar outros tipos de dados, como textos.
+
+```js
+var botaoBuscar = document.querySelector("#Buscar-API");
+
+botaoBuscar.addEventListener("click", function(){
+console.log("Buscando API...");
+
+var xhr = new XMLHttpRequest();
+
+});
+
+```
+
+> Para realizar a aquisição nao basta apenas por isso, temos que configurar mais afundo para que tudo funcione conforme o esperando, nesse caso devemos chamar um metodo que é o **open()** e **GET**, e em seguida colocar o link do API que será chamado.
+
+```js
+var botaoBuscar = document.querySelector("#Buscar-API");
+
+botaoBuscar.addEventListener("click", function(){
+console.log("Buscando API...");
+
+var xhr = new XMLHttpRequest();
+
+xhr.open("GET", "http://LINK_DO_API.com/etc.../");
+});
+
+```
+
+>Alem disso para que a requisição seja realizada temos que chamar outro metodo tbm que é o **send()**.
+
+```js
+var botaoBuscar = document.querySelector("#Buscar-API");
+
+botaoBuscar.addEventListener("click", function(){
+console.log("Buscando API...");
+
+var xhr = new XMLHttpRequest();
+
+xhr.open("GET", "http://LINK_DO_API.com/etc.../");
+
+xhr.send();
+});
+
+```
+
+>Para que os dados seja exibido após o envio da requisição devemos escutar o evento especifico que foi acionado no momento do click, quando a requisição termina e a sua resposta é carregada. Ao escutarmos o evento, carregaremos a resposta da requisição, que no caso serão nossos dados. Esse evento é o **load**, característico do XMLHttpRequest:
+
+
+```js
+var botaoBuscar = document.querySelector("#Buscar-API");
+
+botaoBuscar.addEventListener("click", function(){
+console.log("Buscando API...");
+
+var xhr = new XMLHttpRequest();
+
+xhr.open("GET", "http://LINK_DO_API.com/etc.../");
+
+xhr.addEventListener("load", function(){
+
+});
+
+xhr.send();
+});
+
+```
+>E para acessarmos os dados da resposta, usaremos a propriedade responseText do XMLHttpRequest. Para testarmos, podemos guardá-la em uma variável, e depois imprimi-la no console do navegador:
+
+
+```js
+var botaoBuscar = document.querySelector("#Buscar-API");
+
+botaoBuscar.addEventListener("click", function(){
+console.log("Buscando API...");
+
+var xhr = new XMLHttpRequest();
+
+xhr.open("GET", "http://LINK_DO_API.com/etc.../");
+
+xhr.addEventListener("load", function(){
+    console.log(xhr.responseText);
+});
+
+xhr.send();
+});
+
+```
+
+- Se estiver correto irá imprimir a tabela no console do navegador!
+
 
 
 
